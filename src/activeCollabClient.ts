@@ -2,10 +2,10 @@ import Client from './activeCollab';
 
 
 export default new Client(
-    'k.imamov+ac-test-gitlab@ondigo.de',
-    'u6eP27wrREqxEJvwqb',
-    'ON Gitlab-Integration TEST',
-    'ONDIGO GmbH & Co. KG',
+    process.env.AC_USER || "",
+    process.env.AC_PASSWORD || "",
+    process.env.AC_PROJECT || "",
+    process.env.AC_PROJECT_OWNER || "",
     undefined,
-    'https://project.ondigo.de'
+    process.env.AC_DOMAIN || "",
 );
