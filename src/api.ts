@@ -20,11 +20,13 @@ export async function handleGitlabWebhook(data: GitlabIssueTrigger): Promise<obj
     let response;
     if(issueData.action === 'update'){
         console.log("implement issue update");
+        response={}
     }
     else{
+        console.log(`creating issue ${issueData.title}`)
         response=await handleIssueCreated(issueData);
     }
-    return {}
+    return response
 }
 
 const descriptionWithRepoUrl=(description: string="", url: string="")=>{
@@ -42,7 +44,7 @@ async function handleIssueCreated(data: GitlabIssueAttributes){
         name: data.title,
         body: extendedDescription
     });
-    return createResponse;
+    return createResponse.data;
 
 }
 

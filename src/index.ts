@@ -40,7 +40,6 @@ const port = 80;
 		async (req: Request, res: Response): Promise<Response> => {
 			try {
 				const data=await handleGitlabWebhook(req.body);
-				console.log(req.body)
 				return res.status(200).json(data);
 			} catch (error) {
 				return res.status(500);
